@@ -1,23 +1,27 @@
 <template>
-  <NavBar/>
-  <HomePage/>
+  <NavBar />
+  <HomePage />
+  <EventsDisplay />
 
   <!-- </div> -->
 </template>
 
 <script>
-import HomePage from './views/HomePage.vue';
-import NavBar from './views/NavBar.vue';
-export default{
-  name: 'App',
-  components:{
-    HomePage, NavBar
-  }
-}
+import EventsDisplay from "./views/EventsDisplay.vue";
+import HomePage from "./views/HomePage.vue";
+import NavBar from "./views/NavBar.vue";
+
+export default {
+  name: "App",
+  components: {
+    HomePage,
+    NavBar,
+    EventsDisplay,
+  },
+};
 </script>
 
 <style scoped>
-
 /* // #app {
 //   font-family: Avenir, Helvetica, Arial, sans-serif;
 //   -webkit-font-smoothing: antialiased;
@@ -29,7 +33,6 @@ export default{
 nav {
   padding: 30px;
   background-color: #42b983;
-
 
   /* // a {
   //   font-weight: bold;

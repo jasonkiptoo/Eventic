@@ -7,20 +7,19 @@
           <input type="text" class="searchEvent" placeholder="Search Event" />
         </li>
         <li class="searchbtn">
-         <font-awesome-icon icon="fa-solid fa-magnifying-glass" size="xl" />
+          <font-awesome-icon icon="fa-solid fa-magnifying-glass" size="xl" />
         </li>
       </ul>
-      </div>
-
-      <div class="nav-items">
-        <ul>
-          <li><button class="signin">Create an event</button></li>
-          <li><button class="signin">Log in</button></li>
-          <li><button class="signin">Sign Up</button></li>
-        </ul>
-      </div>
     </div>
 
+    <div class="nav-items">
+      <ul>
+        <li><button class="signin">Create an event</button></li>
+        <li><button class="signin">Log in</button></li>
+        <li><button class="signin">Sign Up</button></li>
+      </ul>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -37,10 +36,9 @@ export default {};
   width: 100%;
   height: 60px;
   /* background-color: rebeccapurple; */
-display: grid;
+  display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-
 }
 .nav-items:first-child {
   justify-self: start;
@@ -65,7 +63,7 @@ display: grid;
   cursor: pointer;
 }
 .signin:hover {
-  border: 1px solid #ff8600 ;
+  border: 1px solid #ff8600;
 }
 #logo {
   color: #ff8600;
@@ -79,24 +77,23 @@ display: grid;
   font-weight: bolder;
   font-size: larger;
 }
-.searchEvent{
+.searchEvent {
   border: 1px solid red;
   border-radius: 10px;
   padding: 5px;
   padding-inline-start: 40px;
   width: 200px;
 }
-.searchbtn{
+.searchbtn {
   color: #f8f7fa;
   cursor: pointer;
-
 }
 .menu-icon {
   display: none;
 }
 @media only screen and (max-width: 600px) {
   .nav-item {
-    /* display: none; */
+    display: none;
   }
   .menu-icon {
     display: block;
@@ -105,5 +102,14 @@ display: grid;
     top: 0px;
     padding-left: 0px;
   }
+  .signin {
+    display: none;
+  }
+  .nav-container{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    height: 100px;
+  }
+  /* .searchEvent */
 }
 </style>

@@ -21,8 +21,8 @@ export default {
 
 <style scoped>
 .dashboard{
-  position: relative;
-  top: 50px;
+  /* position: relative;
+  top: 50px; */
   /* padding-top: 100px; */
 }
 </style>
