@@ -14,8 +14,8 @@
 
       <div class="nav-items">
         <ul>
-          <li><button class="signin">Create Event</button></li>
-          <li><button class="signin">Login</button></li>
+          <li><button class="signin">Create an event</button></li>
+          <li><button class="signin">Log in</button></li>
           <li><button class="signin">Sign Up</button></li>
         </ul>
       </div>
@@ -57,12 +57,15 @@ display: grid;
   justify-self: end;
 }
 .signin {
-  background-color: #2f2f2f;
-  color: aliceblue;
+  /* background-color: #2f2f2f; */
+  color: #2f2f2f;
   border: none;
   border-radius: 5px;
   padding: 5px;
   cursor: pointer;
+}
+.signin:hover {
+  border: 1px solid #ff8600 ;
 }
 #logo {
   color: #ff8600;
