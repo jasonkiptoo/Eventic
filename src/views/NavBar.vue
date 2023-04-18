@@ -1,12 +1,18 @@
 <template>
   <div class="nav-container">
+    <div class="menu-icon">
+      <font-awesome-icon icon="fa-solid fa-bars" size="2xl" />
+    </div>
     <div class="nav-items">
+      <div class="nav-item" id="event">Eventick</div>
       <div class="nav-item" id="home">Home</div>
-      <div class="nav-item">About</div>
+      <div class="nav-item">
+
+        <input type="text" class="searchEvent" placeholder="Search Event">
+      </div>
     </div>
     <div class="nav-item">
       <button class="signin">Sign In</button>
-    
     </div>
 
     <!-- <h4 class="dashboard">Event</h4> -->
@@ -39,28 +45,37 @@ export default {};
 }
 .nav-item {
   cursor: pointer;
-   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bolder;
   font-size: larger;
 }
-.signin{
-  background-color: #2F2F2F;
+.signin {
+  background-color: #2f2f2f;
   color: aliceblue;
   border: none;
   border-radius: 5px;
   padding: 5px;
   cursor: pointer;
 }
-#home{
+#home {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bolder;
   font-size: larger;
-  color: #FF8600;
+  color: #ff8600;
 }
-@media only screen  and (max-width: 600px){
+.menu-icon {
+  display: none;
+}
+@media only screen and (max-width: 600px) {
   .nav-item {
-display: none;
-}
-  
+    display: none;
+  }
+  .menu-icon {
+    display: block;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    padding-left: 0px;
+  }
 }
 </style>
