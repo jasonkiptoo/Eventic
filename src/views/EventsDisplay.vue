@@ -13,7 +13,7 @@
           <p class="card-text">Date: {{ event.date }}</p>
           <p class="card-text">Time: {{ event.time }}</p>
           <p class="card-text">Available slots: {{ event.availableSlots }}</p>
-          <a href="#" class="btn btn-primary">Book now</a>
+          <button  class="btn-booknow">Book now</button>
         </div>
       </div>
     </div>
@@ -150,13 +150,14 @@ export default {
 .card-text {
   margin-bottom: 10px;
 }
-.btn-primary {
+.btn-booknow {
   background-color: #007bff;
   border-color: #007bff;
   color: #fff;
   transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
-.btn-primary:hover {
+.btn-booknow:hover {
   background-color: #0069d9;
   border-color: #0062cc;
 }

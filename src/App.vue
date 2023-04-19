@@ -1,6 +1,7 @@
 <template>
   <NavBar />
   <HomePage />
+  <UpcomingEvents/>
   <EventsDisplay />
 
   <!-- </div> -->
@@ -10,6 +11,7 @@
 import EventsDisplay from "./views/EventsDisplay.vue";
 import HomePage from "./views/HomePage.vue";
 import NavBar from "./views/NavBar.vue";
+import UpcomingEvents from "./views/UpcomingEvents.vue";
 
 export default {
   name: "App",
@@ -17,6 +19,7 @@ export default {
     HomePage,
     NavBar,
     EventsDisplay,
+    UpcomingEvents
   },
 };
 </script>
