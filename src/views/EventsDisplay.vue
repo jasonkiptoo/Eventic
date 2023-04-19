@@ -112,8 +112,21 @@ export default {
   /* add some spacing between the cards */
 }
 .event-card {
-  /* width: 100%; */
-  max-width: 300px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  /* margin: 20px; */
+  float: left;
+  border-radius: 5px;
+  transition: transform 0.2s;
+  /* margin: 20px; */
+  overflow: hidden;
+  width: 300px;
+}
+.event-card:hover {
+  /* border: 0.5px solid #ff8600; */
+  cursor: pointer;
+  box-shadow: 0px 0px 10px #ff8600;
 }
 
 .container {
@@ -163,18 +176,7 @@ export default {
 }
 
 /* Default styles for the cards */
-.event-card {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  margin: 20px;
-  float: left;
-  border-radius: 5px;
-  transition: transform 0.2s;
-  margin: 20px;
-  overflow: hidden;
-  width: 300px;
-}
+
 
 /* Media query for screens smaller than 768px */
 @media only screen and (max-width: 600px) {
@@ -186,9 +188,9 @@ export default {
 
   .event-card {
     width: 100%;
-    height: 200px;
-    margin: 10px 0;
-    float: none;
+    /* height: 100px; */
+    /* margin: 10px 0; */
+    /* float: none; */
   }
 }
 

@@ -2,9 +2,14 @@
   <div class="nav-container">
     <div class="nav-items">
       <ul class="menu">
-        <li><div class="nav-item" id="logo">EvenTic ✔</div></li>
+        <li><font-awesome-icon class="toggleBar" icon="fa-solid fa-bars" /></li>
+        <li><div class="nav-item-logo" id="logo">EvenTic ✔</div></li>
         <li>
-          <input type="text" class="searchEvent" placeholder="Search Event" />
+          <input
+            type="text"
+            class="searchEvent"
+            placeholder=" 🔍Search Event"
+          />
         </li>
         <li class="searchbtn">
           <font-awesome-icon icon="fa-solid fa-magnifying-glass" size="xl" />
@@ -13,7 +18,7 @@
     </div>
 
     <div class="nav-items">
-      <ul>
+      <ul class="nav-item">
         <li><button class="signin">Create an event</button></li>
         <li><button class="signin">Log in</button></li>
         <li><button class="signin">Sign Up</button></li>
@@ -54,6 +59,10 @@ export default {};
   padding-right: 10px;
   justify-self: end;
 }
+.toggleBar {
+  display: none;
+  padding: 5px;
+}
 .signin {
   /* background-color: #2f2f2f; */
   color: #2f2f2f;
@@ -64,6 +73,7 @@ export default {};
 }
 .signin:hover {
   border: 1px solid #ff8600;
+  box-shadow: 0px 0px 10px #ff8600;
 }
 #logo {
   color: #ff8600;
@@ -91,11 +101,36 @@ export default {};
 .menu-icon {
   display: none;
 }
+
+/* responsiveness */
 @media only screen and (max-width: 600px) {
   .nav-item {
     display: none;
   }
-  .menu-icon {
+
+  .searchEvent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 60px;
+    margin-right: 10px;
+    margin-bottom: auto;
+    margin-left: 20px;
+    /* padding-left: 20px; */
+  }
+
+  .nav-container {
+    display: flex;
+    flex-flow: row;
+    background-color: #f8f7fa;
+    position: absolute;
+    /* width: 100%; */
+    height: 100px;
+  }
+  .toggleBar {
+    display: block;
+  }
+  /* .menu-icon {
     display: block;
     position: relative;
     left: 0px;
@@ -109,7 +144,9 @@ export default {};
     display: grid;
     grid-template-columns: 2fr 1fr;
     height: 100px;
-  }
+  } */
   /* .searchEvent */
 }
+
+
 </style>

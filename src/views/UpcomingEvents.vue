@@ -9,12 +9,12 @@
         <img :src="event.imageUrl" class="card-img" alt="..." />
         <div class="card-body">
           <h5 class="card-title">{{ event.eventName }}</h5>
-          <!-- <p class="card-text">{{ event.description }}</p>
+          <button class="btn-booknow">Book now</button>
+        </div>
+        <!-- <p class="card-text">{{ event.description }}</p>
           <p class="card-text">Date: {{ event.date }}</p>
           <p class="card-text">Time: {{ event.time }}</p>
           <p class="card-text">Available slots: {{ event.availableSlots }}</p> -->
-          <button class="btn-booknow">Book now</button>
-        </div>
       </div>
     </div>
   </div>
@@ -45,18 +45,6 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  /* background-color: red;
-  position: relative;
-  left: 0px;
-  top: 0px; */
-}
-.events-container {
-  /* display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px; */
-  /* add some spacing between the cards */
-}
 .event-card {
   position: relative;
 }
@@ -76,25 +64,25 @@ export default {
   width: 100%;
 }
 .card-body {
-    /* width: 100%; */
-    display: flex;
-  flex-direction: row;
-  justify-items: center;
-  align-items: flex-start;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
   color: #fff;
-  padding: 1rem;
 }
 
 .card-title {
-  font-size: 20px;
+  font-size: 40px;
   font-weight: bold;
-  margin-bottom: auto;
-  margin-top: auto;
+  /* margin-bottom: auto;
+  margin: auto; */
 }
 
 .btn-booknow {
@@ -110,4 +98,57 @@ export default {
 }
 
 /* Default styles for the cards */
+
+/* Responsiveness */
+@media only screen and (max-width: 600px) {
+ .event-card {
+  position: relative;
+}
+
+.title {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+}
+.card-img {
+  display: block;
+  height: 500px;
+  object-fit: fit;
+  width: 100%;
+}
+.card-body {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  color: #fff;
+}
+}
+
+/* Media query for screens between 768px and 1023px */
+@media screen and (min-width: 600px) and (max-width: 1025px) {
+   
+}
+
+/* Media query for screens larger than 1024px */
+@media screen and (min-width: 1024px) {
+  .card-body {
+    /* width: 100%;
+    height: 100%; */
+    /* width: calc(25% - 40px); */
+    /* height: 300px;
+    margin: 20px; */
+    /* float: left; */
+  }
+}
 </style>

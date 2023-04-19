@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard">
-   <h2>HomePage</h2> 
+    <h2>HomePage</h2>
     <!-- <HomePage/> -->
     <!-- <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/> -->
@@ -16,11 +16,11 @@ export default {
   // components: {
   //   HomePage
   // }
-}
+};
 </script>
 
 <style scoped>
-.dashboard{
+.dashboard {
   /* position: relative;
   top: 50px; */
   /* padding-top: 100px; */
