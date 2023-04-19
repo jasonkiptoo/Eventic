@@ -1,9 +1,11 @@
 <template>
+  <LoginPage />
+  <CreateEventForm />
   <NavBar />
   <HomePage />
-  <UpcomingEvents/>
+  <UpcomingEvents />
   <EventsDisplay />
-  <NavFooter/>
+  <NavFooter />
 
   <!-- </div> -->
 </template>
@@ -13,7 +15,9 @@ import EventsDisplay from "./views/EventsDisplay.vue";
 import HomePage from "./views/HomePage.vue";
 import NavBar from "./views/NavBar.vue";
 import UpcomingEvents from "./views/UpcomingEvents.vue";
-import NavFooter from "./views/NavFooter.vue"
+import NavFooter from "./views/NavFooter.vue";
+import LoginPage from "./views/LoginPage";
+import CreateEventForm from "./views/CreateEventForm.vue";
 
 export default {
   name: "App",
@@ -21,8 +25,10 @@ export default {
     HomePage,
     NavBar,
     EventsDisplay,
-    UpcomingEvents, 
-    NavFooter
+    UpcomingEvents,
+    NavFooter,
+    LoginPage,
+    CreateEventForm,
   },
 };
 </script>

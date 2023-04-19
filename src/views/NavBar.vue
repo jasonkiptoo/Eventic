@@ -3,7 +3,7 @@
     <div class="nav-items">
       <ul class="menu">
         <li><font-awesome-icon class="toggleBar" icon="fa-solid fa-bars" /></li>
-        <li><div class="nav-item-logo" id="logo">EvenTic ✔</div></li>
+        <li><div class="nav-item-logo" id="logo">EvenTic✔</div></li>
         <li>
           <input
             type="text"
@@ -147,6 +147,4 @@ export default {};
   } */
   /* .searchEvent */
 }
-
-
 </style>
