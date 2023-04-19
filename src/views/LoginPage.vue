@@ -42,7 +42,6 @@ export default {
   background-color: #ffffff;
   width: fit-content;
   /* color: #ff8600; */
-
   border: 1px solid #ff8600;
   border-radius: 10px;
   padding: 40px;
@@ -69,7 +68,7 @@ export default {
   width: 100%;
   height: 30px;
 }
-.logo-text{
+.logo-text {
   color: #ff8600;
   font-size: 30px;
 }

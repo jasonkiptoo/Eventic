@@ -5,16 +5,21 @@
     </div>
 
     <div class="events-container">
+        <!-- <div class="title">
+      <h2 class="title">Coming Up . . .</h2>
+    </div> -->
       <div class="event-card" v-for="(event, index) in events" :key="index">
         <img :src="event.imageUrl" class="card-img" alt="..." />
         <div class="card-body">
           <h5 class="card-title">{{ event.eventName }}</h5>
-          <button class="btn-booknow">Book now</button>
-        </div>
-        <!-- <p class="card-text">{{ event.description }}</p>
+             <p class="card-text">{{ event.description }}</p>
           <p class="card-text">Date: {{ event.date }}</p>
           <p class="card-text">Time: {{ event.time }}</p>
-          <p class="card-text">Available slots: {{ event.availableSlots }}</p> -->
+          <p class="card-text">Available slots: {{ event.availableSlots }}</p>
+          <button class="btn-booknow">Book now</button>
+
+        </div>
+     
       </div>
     </div>
   </div>
@@ -51,12 +56,12 @@ export default {
 
 .title {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 80px;
 }
 
-.event-card:hover {
+/* .event-card:hover {
   transform: translateY(-5px);
-}
+} */
 .card-img {
   display: block;
   height: 500px;
@@ -68,7 +73,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: end;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -76,6 +81,8 @@ export default {
   background-color: rgba(0, 0, 0, 0.5);
   height: 100%;
   color: #fff;
+  padding-right: 50px;
+    
 }
 
 .card-title {
@@ -84,6 +91,7 @@ export default {
   /* margin-bottom: auto;
   margin: auto; */
 }
+
 
 .btn-booknow {
   background-color: #007bff;

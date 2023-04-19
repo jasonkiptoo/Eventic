@@ -19,16 +19,30 @@
 
     <div class="nav-items">
       <ul class="nav-item">
-        <li><button class="signin">Create an event</button></li>
-        <li><button class="signin">Log in</button></li>
-        <li><button class="signin">Sign Up</button></li>
+        <li><button class="signin" @click="addEvent" >Create an event</button></li>
+        <li><button class="signin" @click="showLoginModal">Log in</button></li>
+        <li><button class="signin" >Sign Up</button></li>
       </ul>
     </div>
   </div>
+   <router-view></router-view>
 </template>
 
 <script>
-export default {};
+export default {
+name: "NavBar",
+
+methods: {
+  showLoginModal(){
+    this.$router.push({name: 'LogIn'})
+  },
+  addEvent(){
+    this.$router.push({name: 'CreateEvent'})
+  }
+}
+
+
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

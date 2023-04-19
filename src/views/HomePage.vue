@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard">
-    <h2>HomePage</h2>
+    <h2>HomePag</h2>
     <!-- <HomePage/> -->
     <!-- <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/> -->
