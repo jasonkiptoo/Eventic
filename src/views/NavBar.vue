@@ -19,29 +19,51 @@
 
     <div class="nav-items">
       <ul class="nav-item">
-        <li><button class="signin" @click="addEvent" >Create an event</button></li>
-        <li><button class="signin" @click="showLoginModal">Log in</button></li>
-        <li><button class="signin" >Sign Up</button></li>
+        <li>
+          <button class="signin" @click="addEvent">Create an event</button>
+        </li>
+        <li>
+          <button class="signin" @click="showLoginModal = true">Log in</button>
+        </li>
+        <li><button class="signin">Sign Up</button></li>
       </ul>
     </div>
+    <div
+      v-if="showLoginModal"
+      class="modal-overlay"
+      @click.self="showLoginModal = false"
+    >
+      <div class="modal" @click="showLoginModal = true">
+        <span class="close" @click="showLoginModal = false">&times;</span>
+        <LoginPage />
+      </div>
+    </div>
   </div>
-   <router-view></router-view>
+  <!-- <router-view></router-view> -->
 </template>
 
 <script>
+import LoginPage from "../views/LoginPage.vue";
 export default {
-name: "NavBar",
+  name: "NavBar",
 
-methods: {
-  showLoginModal(){
-    this.$router.push({name: 'LogIn'})
+  components: {
+    LoginPage,
   },
-  addEvent(){
-    this.$router.push({name: 'CreateEvent'})
-  }
-}
+  data() {
+    return {
+      showLoginModal: false,
+    };
+  },
 
-
+  methods: {
+    // showLoginModal(){
+    //   this.$router.push({name: 'LogIn'})
+    // },
+    addEvent() {
+      this.$router.push({ name: "CreateEvent" });
+    },
+  },
 };
 </script>
 
@@ -59,6 +81,34 @@ methods: {
   grid-template-columns: 1fr auto;
   align-items: center;
 }
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  position: relative;
+  background-color: #fff;
+  /* padding: 20px;
+  max-width: 40px; */
+  /* z-index: 1000; */
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
 .nav-items:first-child {
   justify-self: start;
 }

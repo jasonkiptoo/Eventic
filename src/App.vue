@@ -3,7 +3,7 @@
 
  <NavBar />
  <Event/>
- <LoginPag/>
+ <!-- <LoginPag/> -->
 
  <!-- <router-view></router-view> -->
   <!-- </div> -->
@@ -16,7 +16,7 @@ import NavBar from "./views/NavBar.vue";
 // import NavFooter from "./views/NavFooter.vue";
 // import LoginPage from "./views/LoginPage";
 import Event from "./views/EventsDisplay.vue"
-import LoginPag from "./views/LoginPage.vue"
+// import LoginPag from "./views/LoginPage.vue"
 // import CreateEventForm from "./views/CreateEventForm.vue";
 
 export default {
@@ -25,7 +25,7 @@ export default {
    
     NavBar,
     Event,
-    LoginPag
+    // LoginPag
     // EventsDisplay,
     // UpcomingEvents,
     // NavFooter,
