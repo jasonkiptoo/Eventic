@@ -5,21 +5,19 @@
     </div>
 
     <div class="events-container">
-        <!-- <div class="title">
+      <!-- <div class="title">
       <h2 class="title">Coming Up . . .</h2>
     </div> -->
       <div class="event-card" v-for="(event, index) in events" :key="index">
         <img :src="event.imageUrl" class="card-img" alt="..." />
         <div class="card-body">
           <h5 class="card-title">{{ event.eventName }}</h5>
-             <p class="card-text">{{ event.description }}</p>
+          <p class="card-text">{{ event.description }}</p>
           <p class="card-text">Date: {{ event.date }}</p>
           <p class="card-text">Time: {{ event.time }}</p>
           <p class="card-text">Available slots: {{ event.availableSlots }}</p>
           <button class="btn-booknow">Book now</button>
-
         </div>
-     
       </div>
     </div>
   </div>
@@ -69,7 +67,6 @@ export default {
   width: 100%;
 }
 .card-body {
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -82,7 +79,6 @@ export default {
   height: 100%;
   color: #fff;
   padding-right: 50px;
-    
 }
 
 .card-title {
@@ -91,7 +87,6 @@ export default {
   /* margin-bottom: auto;
   margin: auto; */
 }
-
 
 .btn-booknow {
   background-color: #007bff;
@@ -109,43 +104,41 @@ export default {
 
 /* Responsiveness */
 @media only screen and (max-width: 600px) {
- .event-card {
-  position: relative;
-}
+  .event-card {
+    position: relative;
+  }
 
-.title {
-  text-align: center;
-  margin-top: 30px;
-}
+  .title {
+    text-align: center;
+    margin-top: 30px;
+  }
 
-.event-card:hover {
-  transform: translateY(-5px);
-}
-.card-img {
-  display: block;
-  height: 500px;
-  object-fit: fit;
-  width: 100%;
-}
-.card-body {
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  height: 100%;
-  color: #fff;
-}
+  .event-card:hover {
+    transform: translateY(-5px);
+  }
+  .card-img {
+    display: block;
+    height: 500px;
+    object-fit: fit;
+    width: 100%;
+  }
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    color: #fff;
+  }
 }
 
 /* Media query for screens between 768px and 1023px */
 @media screen and (min-width: 600px) and (max-width: 1025px) {
-   
 }
 
 /* Media query for screens larger than 1024px */

@@ -1,27 +1,29 @@
 <template>
   <div class="container-login">
-    <h3 class="logo-text">EvenTic✔</h3>
-    <h2 class="title">Login</h2>
+    <div class="moda">
+      <h3 class="logo-text">EvenTic✔</h3>
+      <h2 class="title">Login</h2>
 
-    <div class="container-input">
-      <input type="email" class="login-input" placeholder="Email" />
-    </div>
-    <div class="conatiner-input">
-      <input type="password" class="login-input" placeholder="********" />
-    </div>
-    <button class="forgotpassword-btn">
-      <span class="register-button"> Forgot password? Reset here</span>
-    </button>
-
-    <div class="container-btn">
-      <button class="login-btn">Login</button>
-    </div>
-    <div class="container-btn">
-      <button class="register-btn">
-        Don't Have an account ?<span class="register-button">
-          Register Here</span
-        >
+      <div class="container-input">
+        <input type="email" class="login-input" placeholder="Email" />
+      </div>
+      <div class="conatiner-input">
+        <input type="password" class="login-input" placeholder="********" />
+      </div>
+      <button class="forgotpassword-btn">
+        <span class="register-button"> Forgot password? Reset here</span>
       </button>
+
+      <div class="container-btn">
+        <button class="login-btn">Login</button>
+      </div>
+      <div class="container-btn">
+        <button class="register-btn">
+          Don't Have an account ?<span class="register-button">
+            Register Here</span
+          >
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -37,11 +39,21 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .container-login {
-  display: none;
+  /* display: none; */
   background-color: #ffffff;
   width: fit-content;
-  /* color: #ff8600; */
   border: 1px solid #ff8600;
   border-radius: 10px;
   padding: 40px;
@@ -49,6 +61,16 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin: 100px auto;
+  z-index: 123456789;
+  position: absolute;
+  top: 10;
+  left: 0;
+  right: 0;
+  bottom: 10;
+  /* background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center; */
 }
 
 .login-input {

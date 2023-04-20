@@ -102,9 +102,7 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  /* background-color: red; */
-}
+
 .events-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
