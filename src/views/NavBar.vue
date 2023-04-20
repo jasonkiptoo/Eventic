@@ -32,9 +32,10 @@
       v-if="showLoginModal"
       class="modal-overlay"
       @click.self="showLoginModal = false"
+      
     >
-      <div class="modal" @click="showLoginModal = true">
-        <span class="close" @click="showLoginModal = false">&times;</span>
+      <div class="modal" >
+        <span class="close" @click="showLoginModal = false"><font-awesome-icon icon="fa-solid fa-xmark" size="2xl" /></span>
         <LoginPage />
       </div>
     </div>
@@ -89,7 +90,6 @@ export default {
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
-  /* display: flex; */
   align-items: center;
   justify-content: center;
 }
@@ -99,14 +99,18 @@ export default {
   background-color: #fff;
   /* padding: 20px;
   max-width: 40px; */
-  /* z-index: 1000; */
+  z-index: 999;
 }
 
 .close {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 100px;
+  right: 500px;
   cursor: pointer;
+  z-index: 1001;
+  color: #f8f7fa;
+
+
 }
 
 .nav-items:first-child {
