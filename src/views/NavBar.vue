@@ -9,7 +9,8 @@
             type="text"
             class="searchEvent"
             placeholder=" 🔍Search Event"
-            v-model="searchQuery"    v-on:keyup="$emit('search', searchQuery)"
+            v-model="searchQuery"
+            v-on:keyup="$emit('search', searchQuery)"
           />
         </li>
 
@@ -22,7 +23,6 @@
     <div class="nav-items">
       <ul class="nav-item">
         <li>
-          
           <button class="signin" @click="addEvent">Create an event</button>
         </li>
         <li>
