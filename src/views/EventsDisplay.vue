@@ -3,7 +3,12 @@
 
   <!-- <UpcomingEvents/> -->
   <!-- <input type="text" v-model="searchQuery" class="search" /> -->
+
   <div class="container">
+    <div class="filter-container">
+      <h3 class="filter-text">Filter Events By :</h3>
+    </div>
+
     <div class="title">
       <h2 class="title">Popular events</h2>
     </div>
@@ -11,13 +16,25 @@
     <div class="events-container">
       <div class="event-card" v-for="(event, index) in filtered" :key="index">
         <img :src="event.imageUrl" class="card-img" alt="..." />
+        <div class="heart-icon">
+          <font-awesome-icon
+            class="solid-heart-icon"
+            icon="fa-solid fa-heart"
+            style="color: tomato"
+            size="2xl"
+          />
+        </div>
+
         <div class="card-body">
           <h5 class="card-title">{{ event.eventName }}</h5>
           <p class="card-text">{{ event.description }}</p>
-          <p class="card-text">Date: {{ event.date }}</p>
-          <p class="card-text">Time: {{ event.time }}</p>
+          <p class="card-text-date">Date: {{ event.date }}</p>
+          <p class="card-text-date">Time: {{ event.time }}</p>
           <p class="card-text">Available slots: {{ event.availableSlots }}</p>
-          <button class="btn-booknow">Book now</button>
+
+          <button class="btn-booknow">
+            Book now <font-awesome-icon icon="fa-sharp fa-light fa-heart" />
+          </button>
           <!-- <p class="test">{{ searchQuery }}</p> -->
         </div>
       </div>
@@ -35,7 +52,7 @@ export default {
   components: {
     NavBar,
     // UpcomingEvents
-},
+  },
   data() {
     return {
       searchQuery: "",
@@ -110,8 +127,16 @@ export default {
   box-shadow: 0px 0px 10px #ff8600;
 }
 
-.container {
-  /* background-color: aqua; */
+.filter-container {
+  position: relative;
+  margin-top: 70px;
+  height: 50px;
+  color: black;
+  background-color: aqua;
+}
+.filter-text {
+  align-items: center;
+  padding-left: 20px;
 }
 .title {
   text-align: center;
@@ -134,7 +159,7 @@ export default {
   width: 100%;
 }
 .card-body {
-  padding: 20px;
+  padding: 10px;
 }
 .card-title {
   font-size: 20px;
@@ -143,6 +168,16 @@ export default {
 }
 .card-text {
   margin-bottom: 10px;
+}
+.card-text-date {
+  color: chocolate;
+}
+
+.heart-icon {
+  padding-right: 10px;
+  z-index: 100000;
+  display: flex;
+  float: right;
 }
 .btn-booknow {
   background-color: #007bff;
