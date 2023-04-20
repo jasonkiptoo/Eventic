@@ -1,11 +1,12 @@
 <template>
+  <input type="text" v-model="searchQuery" class="search" />
   <div class="container">
     <div class="title">
       <h2 class="title">Popular events</h2>
     </div>
 
     <div class="events-container">
-      <div class="event-card" v-for="(event, index) in events" :key="index">
+      <div class="event-card" v-for="(event, index) in filtered" :key="index">
         <img :src="event.imageUrl" class="card-img" alt="..." />
         <div class="card-body">
           <h5 class="card-title">{{ event.eventName }}</h5>
@@ -13,7 +14,7 @@
           <p class="card-text">Date: {{ event.date }}</p>
           <p class="card-text">Time: {{ event.time }}</p>
           <p class="card-text">Available slots: {{ event.availableSlots }}</p>
-          <button  class="btn-booknow">Book now</button>
+          <button class="btn-booknow">Book now</button>
         </div>
       </div>
     </div>
@@ -24,6 +25,7 @@
 export default {
   data() {
     return {
+      searchQuery: "",
       events: [
         {
           eventName: "Music Festival",
@@ -98,11 +100,28 @@ export default {
       ],
     };
   },
+  computed: {
+    // const filtered = events.
+    filtered() {
+      if (!this.searchQuery) {
+        return this.events;
+      }
+      return this.events.filter((event) =>
+        event.eventName.toLowerCase().includes(this.searchQuery.toLowerCase())
+      );
+    },
+  },
 };
 </script>
 
 <style scoped>
-
+.search {
+  z-index: 1000000;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+}
 .events-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -174,7 +193,6 @@ export default {
 }
 
 /* Default styles for the cards */
-
 
 /* Media query for screens smaller than 768px */
 @media only screen and (max-width: 600px) {

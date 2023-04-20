@@ -9,6 +9,7 @@
             type="text"
             class="searchEvent"
             placeholder=" 🔍Search Event"
+            v-model="searchQuery"
           />
         </li>
         <li class="searchbtn">
@@ -32,10 +33,11 @@
       v-if="showLoginModal"
       class="modal-overlay"
       @click.self="showLoginModal = false"
-      
     >
-      <div class="modal" >
-        <span class="close" @click="showLoginModal = false"><font-awesome-icon icon="fa-solid fa-xmark" size="2xl" /></span>
+      <div class="modal">
+        <span class="close" @click="showLoginModal = false"
+          ><font-awesome-icon icon="fa-solid fa-xmark" size="2xl"
+        /></span>
         <LoginPage />
       </div>
     </div>
@@ -54,6 +56,7 @@ export default {
   data() {
     return {
       showLoginModal: false,
+      searchQuery: "",
     };
   },
 
@@ -109,8 +112,6 @@ export default {
   cursor: pointer;
   z-index: 1001;
   color: #f8f7fa;
-
-
 }
 
 .nav-items:first-child {

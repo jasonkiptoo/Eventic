@@ -13,7 +13,7 @@
       <div class="container-input">
         <input type="email" class="login-input" placeholder="Email" />
       </div>
-      <div class="conatiner-input">
+      <div class="container-input">
         <input type="password" class="login-input" placeholder="********" />
       </div>
       <button class="forgotpassword-btn">
@@ -85,6 +85,7 @@ export default {
   width: 100%;
   height: 30px;
   border: 1px solid rebeccapurple;
+  padding-inline-start: 10px;
 }
 .login-btn {
   color: aliceblue;
