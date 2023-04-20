@@ -1,7 +1,7 @@
 <template>
 
 
- <NavBar />
+ <!-- <NavBar /> -->
  <Event/>
  <!-- <LoginPag/> -->
 
@@ -11,7 +11,7 @@
 
 <script>
 // import EventsDisplay from "./views/EventsDisplay.vue";
-import NavBar from "./views/NavBar.vue";
+// import NavBar from "./views/NavBar.vue";
 // import UpcomingEvents from "./views/UpcomingEvents.vue";
 // import NavFooter from "./views/NavFooter.vue";
 // import LoginPage from "./views/LoginPage";
@@ -22,8 +22,7 @@ import Event from "./views/EventsDisplay.vue"
 export default {
   name: "App",
   components: {
-   
-    NavBar,
+  
     Event,
     // LoginPag
     // EventsDisplay,

@@ -9,18 +9,20 @@
             type="text"
             class="searchEvent"
             placeholder=" 🔍Search Event"
-            v-model="searchQuery"
+            v-model="searchQuery"    v-on:keyup="$emit('search', searchQuery)"
           />
         </li>
-        <li class="searchbtn">
-          <font-awesome-icon icon="fa-solid fa-magnifying-glass" size="xl" />
-        </li>
+
+        <!-- <li class="searchbtn">
+          <font-awesome-icon icon="fa-solid fa-magnifying-glass" size="xl" @click="$emit('search', searchQuery)"/>
+        </li> -->
       </ul>
     </div>
 
     <div class="nav-items">
       <ul class="nav-item">
         <li>
+          
           <button class="signin" @click="addEvent">Create an event</button>
         </li>
         <li>
@@ -46,27 +48,13 @@
 </template>
 
 <script>
-import LoginPage from "../views/LoginPage.vue";
+// import LoginPage from "../views/LoginPage.vue";
 export default {
-  name: "NavBar",
-
-  components: {
-    LoginPage,
-  },
   data() {
     return {
-      showLoginModal: false,
       searchQuery: "",
+      showLoginModal: false,
     };
-  },
-
-  methods: {
-    // showLoginModal(){
-    //   this.$router.push({name: 'LogIn'})
-    // },
-    addEvent() {
-      this.$router.push({ name: "CreateEvent" });
-    },
   },
 };
 </script>
@@ -164,7 +152,7 @@ export default {
   width: 200px;
 }
 .searchbtn {
-  color: #f8f7fa;
+  color: black;
   cursor: pointer;
 }
 .menu-icon {

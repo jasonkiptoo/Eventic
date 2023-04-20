@@ -1,5 +1,8 @@
 <template>
-  <input type="text" v-model="searchQuery" class="search" />
+  <NavBar @search="handleSearch" />
+
+  <!-- <UpcomingEvents/> -->
+  <!-- <input type="text" v-model="searchQuery" class="search" /> -->
   <div class="container">
     <div class="title">
       <h2 class="title">Popular events</h2>
@@ -15,6 +18,7 @@
           <p class="card-text">Time: {{ event.time }}</p>
           <p class="card-text">Available slots: {{ event.availableSlots }}</p>
           <button class="btn-booknow">Book now</button>
+          <!-- <p class="test">{{ searchQuery }}</p> -->
         </div>
       </div>
     </div>
@@ -22,83 +26,26 @@
 </template>
 
 <script>
+import NavBar from "../views/NavBar.vue";
+// import UpcomingEvents from "./UpcomingEvents.vue";
+
+import axios from "axios";
+// import { response } from "express";
 export default {
+  components: {
+    NavBar,
+    // UpcomingEvents
+},
   data() {
     return {
       searchQuery: "",
-      events: [
-        {
-          eventName: "Music Festival",
-          description:
-            "Join us for a weekend of live music from some of the best bands around!",
-          date: "2023-07-08",
-          time: "12:00 PM",
-          imageUrl:
-            "https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
-          availableSlots: 500,
-        },
-        {
-          eventName: "Charity Gala",
-          description:
-            "Support a good cause and enjoy an elegant evening of dinner, drinks, and entertainment.",
-          date: "2023-09-15",
-          time: "7:00 PM",
-          imageUrl:
-            "https://images.unsplash.com/photo-1556125574-d7f27ec36a06?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-          availableSlots: 100,
-        },
-        {
-          eventName: "Art Exhibition",
-          description:
-            "Explore the works of some of the most talented artists in the world.",
-          date: "2023-05-20",
-          time: "10:00 AM",
-          imageUrl:
-            "https://plus.unsplash.com/premium_photo-1663012861364-db0fbb286145?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=777&q=80",
-          availableSlots: 200,
-        },
-        {
-          eventName: "Food Festival",
-          description:
-            "Sample the culinary delights of dozens of top chefs and restaurants.",
-          date: "2023-06-03",
-          time: "11:00 AM",
-          imageUrl:
-            "https://images.unsplash.com/photo-1530023367847-a683933f4172?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
-          availableSlots: 300,
-        },
-        {
-          eventName: "Sports Tournament",
-          description:
-            "Watch some of the world's top athletes compete in a variety of sports.",
-          date: "2023-08-12",
-          time: "9:00 AM",
-          imageUrl:
-            "https://images.unsplash.com/photo-1561912774-79769a0a0a7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
-          availableSlots: 1000,
-        },
-        {
-          eventName: "Technology Conference",
-          description:
-            "Learn about the latest trends and innovations in the tech industry from industry experts.",
-          date: "2023-11-01",
-          time: "8:00 AM",
-          imageUrl:
-            "https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-          availableSlots: 500,
-        },
-        {
-          eventName: "Fashion Show",
-          description:
-            "See the latest styles and trends from top designers and models.",
-          date: "2023-10-05",
-          time: "6:00 PM",
-          imageUrl:
-            "https://images.unsplash.com/photo-1515169067868-5387ec356754?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-          availableSlots: 200,
-        },
-      ],
+      events: [],
     };
+  },
+  methods: {
+    handleSearch(query) {
+      this.searchQuery = query;
+    },
   },
   computed: {
     // const filtered = events.
@@ -110,6 +57,23 @@ export default {
         event.eventName.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
     },
+    methods: {
+      updateSearchQuery(newSearchQuery) {
+        this.searchQuery = newSearchQuery; // update searchQuery data property
+      },
+    },
+  },
+  // fetch data on mount
+  mounted() {
+    axios
+      .get("http://localhost:3000/events")
+      .then((response) => {
+        this.events = response.data;
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
 };
 </script>
