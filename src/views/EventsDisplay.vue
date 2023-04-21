@@ -14,7 +14,9 @@
           <a @click="selectedTab = 'tab3'">Categories</a>
         </li>
       </ul>
+      <!-- tab content -->
       <div class="tab-content">
+        <!-- tab 1 -->
         <div v-show="selectedTab === 'tab1'">
           <div class="title">
             <h2 class="title">Popular events</h2>
@@ -34,7 +36,6 @@
 
                   <div class="class-heart">
                     <div class="heart-outline">
-                      
                       <font-awesome-icon
                         v-if="isLiked"
                         icon="fa-solid fa-heart"
@@ -70,6 +71,7 @@
             </div>
           </div>
         </div>
+        <!-- second tab -->
         <div v-show="selectedTab === 'tab2'">
           <div class="liked-events">
             <h2 class="title">Liked events</h2>
@@ -117,8 +119,72 @@
             </div>
           </div>
         </div>
+
+        <!-- tab3 filter by categories -->
         <div v-show="selectedTab === 'tab3'">
           <h2 class="title">Filter by Categories</h2>
+          <ul class="category-list">
+            <li
+              @click="selectedCategory = 'All'"
+              :class="{ active: selectedCategory === 'All' }"
+            >
+              All
+            </li>
+            <li
+              @click="selectedCategory = 'Fashion'"
+              :class="{ active: selectedCategory === 'Fashion' }"
+            >
+              Fashion
+            </li>
+            <li
+              @click="selectedCategory = 'Technology'"
+              :class="{ active: selectedCategory === 'Technology' }"
+            >
+              Technology
+            </li>
+            <li
+              @click="selectedCategory = 'Food'"
+              :class="{ active: selectedCategory === 'Food' }"
+            >
+              Food & Drinks
+            </li>
+            <li
+              @click="selectedCategory = 'Social'"
+              :class="{ active: selectedCategory === 'Social' }"
+            >
+              Social
+            </li>
+            <li
+              @click="selectedCategory = 'Health'"
+              :class="{ active: selectedCategory === 'Health' }"
+            >
+              Health
+            </li>
+            <li
+              @click="selectedCategory = 'Sports'"
+              :class="{ active: selectedCategory === 'Sports' }"
+            >
+              Sports
+            </li>
+            <li
+              @click="selectedCategory = 'Business'"
+              :class="{ active: selectedCategory === 'Business' }"
+            >
+              Business
+            </li>
+            <li
+              @click="selectedCategory = 'Music'"
+              :class="{ active: selectedCategory === 'Music' }"
+            >
+              Music
+            </li>
+            <li
+              @click="selectedCategory = 'Climate'"
+              :class="{ active: selectedCategory === 'Climate' }"
+            >
+              Climate
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -136,6 +202,7 @@ export default {
   },
   data() {
     return {
+      selectedCategory: "All",
       selectedTab: "tab1",
       searchQuery: "",
       events: [],
@@ -211,7 +278,7 @@ export default {
   margin-top: 70px;
   height: 50px;
   color: black;
-  background-color: aqua;
+  /* background-color: aqua; */
 }
 .filter-text {
   align-items: center;
@@ -302,8 +369,29 @@ export default {
 }
 
 .tabs li.active a {
-  background-color: blue;
+  background-color: #ff8600;
   border-bottom-color: blue;
+}
+/* category list 
+ */
+.category-list {
+  display: block;
+  list-style: none;
+  float: center;
+}
+.category-list li {
+  float: left;
+  border: 1px solid #ff8600;
+  border-radius: 3px;
+  margin: 20px;
+  padding-inline: 5px;
+  cursor: pointer;
+  color: black;
+  padding: 20px;
+}
+.category-list li.active {
+  background-color: #ff8600;
+  color: #ccc;
 }
 
 /* Default styles for the cards */

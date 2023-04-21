@@ -2,6 +2,7 @@
 
 
  <!-- <NavBar /> -->
+ <UpcomingEvents/>
  <Event/>
  <!-- <LoginPag/> -->
 
@@ -12,7 +13,7 @@
 <script>
 // import EventsDisplay from "./views/EventsDisplay.vue";
 // import NavBar from "./views/NavBar.vue";
-// import UpcomingEvents from "./views/UpcomingEvents.vue";
+import UpcomingEvents from "./views/UpcomingEvents.vue";
 // import NavFooter from "./views/NavFooter.vue";
 // import LoginPage from "./views/LoginPage";
 import Event from "./views/EventsDisplay.vue"
@@ -26,7 +27,7 @@ export default {
     Event,
     // LoginPag
     // EventsDisplay,
-    // UpcomingEvents,
+    UpcomingEvents,
     // NavFooter,
     // LoginPage,
     // CreateEventForm,

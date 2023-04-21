@@ -63,15 +63,16 @@ export default {
 <style scoped>
 .nav-container {
   background-color: #f8f7fa;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   width: 100%;
   height: 60px;
-  /* background-color: rebeccapurple; */
+z-index: 100;
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
+  
 }
 .modal-overlay {
   position: fixed;
