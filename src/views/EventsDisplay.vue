@@ -1,42 +1,128 @@
 <template>
   <NavBar @search="handleSearch" />
 
-  <!-- <UpcomingEvents/> -->
-  <!-- <input type="text" v-model="searchQuery" class="search" /> -->
-
   <div class="container">
     <div class="filter-container">
-      <h3 class="filter-text">Filter Events By :</h3>
-    </div>
+      <!--  <h3 class="filter-text">Filter Events By :</h3> -->
 
-    <div class="title">
-      <h2 class="title">Popular events</h2>
-    </div>
+      <ul class="tabs">
+        <li :class="{ active: selectedTab === 'tab1' }">
+          <a @click="selectedTab = 'tab1'">All Events </a>
+        </li>
+        <li :class="{ active: selectedTab === 'tab2' }">
+          <a @click="selectedTab = 'tab2'">My Events</a>
+        </li>
+        <li :class="{ active: selectedTab === 'tab3' }">
+          <a @click="selectedTab = 'tab3'">Tab 3</a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div v-show="selectedTab === 'tab1'">
+          <div class="title">
+            <h2 class="title">Popular events</h2>
+          </div>
 
-    <div class="events-container">
-      <div class="event-card" v-for="(event, index) in filtered" :key="index">
-        <img :src="event.imageUrl" class="card-img" alt="..." />
-        <div class="heart-icon">
-          <font-awesome-icon
-            class="solid-heart-icon"
-            icon="fa-solid fa-heart"
-            style="color: tomato"
-            size="2xl"
-          />
+          <div class="events-container">
+            <div
+              class="event-card"
+              v-for="(event, index) in filtered"
+              :key="index"
+            >
+              <img :src="event.imageUrl" class="card-img" alt="..." />
+
+              <div class="card-body">
+                <div class="card-tit">
+                  <h5 class="card-title">{{ event.eventName }}</h5>
+
+                  <div class="class-heart">
+                    <div class="heart-outline">
+                      <!-- <button
+                  @click="likeEvent(event)"
+                  :class="{ liked: likedEvents.includes(event) }"
+                > -->
+                      <font-awesome-icon
+                        v-if="isLiked"
+                        icon="fa-solid fa-heart"
+                        style="color: tomato"
+                        size="2xl"
+                        @click="likeEvent(event)"
+                        :class="{ liked: likedEvents.includes(event) }"
+                      />
+                      <font-awesome-icon
+                        v-else
+                        icon="fa-solid fa-heart"
+                        style="color: black"
+                        size="2xl"
+                        @click="likeEvent(event)"
+                        :class="{ liked: likedEvents.includes(event) }"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <p class="card-text">{{ event.description }}</p>
+                <p class="card-text-date">Date: {{ event.date }}</p>
+                <p class="card-text-date">Time: {{ event.time }}</p>
+                <p class="card-text">
+                  Available slots: {{ event.availableSlots }}
+                </p>
+
+                <button class="btn-booknow">
+                  Book now
+                  <font-awesome-icon icon="fa-sharp fa-light fa-heart" />
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+        <div v-show="selectedTab === 'tab2'">
+          <div class="liked-events">
+            <h2 class="title">Liked events</h2>
+            <div class="events-container">
+              <div
+                class="event-card"
+                v-for="(event, index) in likedEvents"
+                :key="index"
+              >
+                <img :src="event.imageUrl" class="card-img" alt="..." />
 
-        <div class="card-body">
-          <h5 class="card-title">{{ event.eventName }}</h5>
-          <p class="card-text">{{ event.description }}</p>
-          <p class="card-text-date">Date: {{ event.date }}</p>
-          <p class="card-text-date">Time: {{ event.time }}</p>
-          <p class="card-text">Available slots: {{ event.availableSlots }}</p>
+                <div class="card-body">
+                  <div class="card-tit">
+                    <h5 class="card-title">{{ event.eventName }}</h5>
 
-          <button class="btn-booknow">
-            Book now <font-awesome-icon icon="fa-sharp fa-light fa-heart" />
-          </button>
-          <!-- <p class="test">{{ searchQuery }}</p> -->
+                    <div class="class-heart">
+                      <div class="heart-outline">
+                        <button
+                          @click="likeEvent(event)"
+                          :class="{ liked: likedEvents.includes(event) }"
+                        >
+                          <font-awesome-icon
+                            icon="fa-solid fa-heart"
+                            style="color: tomato"
+                            size="2xl"
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p class="card-text">{{ event.description }}</p>
+                  <p class="card-text-date">Date: {{ event.date }}</p>
+                  <p class="card-text-date">Time: {{ event.time }}</p>
+                  <p class="card-text">
+                    Available slots: {{ event.availableSlots }}
+                  </p>
+
+                  <button class="btn-booknow">
+                    Book now
+                    <font-awesome-icon icon="fa-sharp fa-light fa-heart" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+        <div v-show="selectedTab === 'tab3'">Tab 3 content</div>
       </div>
     </div>
   </div>
@@ -44,28 +130,40 @@
 
 <script>
 import NavBar from "../views/NavBar.vue";
-// import UpcomingEvents from "./UpcomingEvents.vue";
 
 import axios from "axios";
-// import { response } from "express";
+
 export default {
   components: {
     NavBar,
-    // UpcomingEvents
   },
   data() {
     return {
+      selectedTab: "tab1",
       searchQuery: "",
       events: [],
+      isLiked: false,
+      likedEvents: [],
     };
   },
   methods: {
     handleSearch(query) {
       this.searchQuery = query;
     },
+    isLikedEvent(event) {
+      if (!this.isLiked(event)) {
+        this.isLiked = !this.isLiked;
+      }
+    },
+    likeEvent(event) {
+      if (!this.likedEvents.includes(event)) {
+        this.likedEvents.push(event);
+      } else {
+        this.likedEvents.splice(this.likedEvents.indexOf(event), 1);
+      }
+    },
   },
   computed: {
-    // const filtered = events.
     filtered() {
       if (!this.searchQuery) {
         return this.events;
@@ -74,13 +172,7 @@ export default {
         event.eventName.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
     },
-    methods: {
-      updateSearchQuery(newSearchQuery) {
-        this.searchQuery = newSearchQuery; // update searchQuery data property
-      },
-    },
   },
-  // fetch data on mount
   mounted() {
     axios
       .get("http://localhost:3000/events")
@@ -96,28 +188,18 @@ export default {
 </script>
 
 <style scoped>
-.search {
-  z-index: 1000000;
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-}
 .events-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
-  /* add some spacing between the cards */
 }
 .event-card {
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  /* margin: 20px; */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0);
   float: left;
   border-radius: 5px;
   transition: transform 0.2s;
-  /* margin: 20px; */
   overflow: hidden;
   width: 300px;
 }
@@ -142,14 +224,7 @@ export default {
   text-align: center;
   margin-top: 30px;
 }
-/* .event-card {
-  border-radius: 5px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s;
-  margin: 20px;
-  overflow: hidden;
-  width: 300px;
-} */
+
 .event-card:hover {
   transform: translateY(-5px);
 }
@@ -159,12 +234,12 @@ export default {
   width: 100%;
 }
 .card-body {
-  padding: 10px;
+  padding: 10px 10px 10px 10px;
 }
 .card-title {
   font-size: 20px;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .card-text {
   margin-bottom: 10px;
@@ -172,12 +247,23 @@ export default {
 .card-text-date {
   color: chocolate;
 }
-
-.heart-icon {
-  padding-right: 10px;
-  z-index: 100000;
+.card-tit {
   display: flex;
-  float: right;
+  justify-content: space-between;
+}
+.class-heart {
+  display: flex;
+  /* background-color: #0062cc; */
+  border-radius: 50px;
+  /* width: 100%  ; */
+  /* height: 100%; */
+  justify-content: center;
+  flex-direction: column-reverse;
+}
+.heart-outline {
+  background-color: #0062cc;
+  border-radius: 30px;
+  /* display: none; */
 }
 .btn-booknow {
   background-color: #007bff;
@@ -191,6 +277,37 @@ export default {
   border-color: #0062cc;
 }
 
+.tabs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  /* justify-content: ; */
+}
+
+.tabs li {
+  margin-right: 10px;
+}
+
+.tabs a {
+  display: block;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+  border: 1px solid #ccc;
+  border-radius: 5px 5px 0 0;
+  background-color: #f9f9f9;
+}
+
+.tabs a:hover {
+  background-color: #eaeaea;
+}
+
+.tabs li.active a {
+  background-color: #fff;
+  border-bottom-color: #fff;
+}
+
 /* Default styles for the cards */
 
 /* Media query for screens smaller than 768px */
@@ -202,7 +319,7 @@ export default {
   }
 
   .event-card {
-    width: 100%;
+    /* width: 100%; */
     /* height: 100px; */
     /* margin: 10px 0; */
     /* float: none; */

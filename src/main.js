@@ -5,12 +5,17 @@ import router from "./router";
 // icons
 import { library } from "@fortawesome/fontawesome-svg-core";
 
-// import { faBars } from "@fortawesome/free-solid-svg-icons";
-
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faBars, faHeart, faMagnifyingGlass, faXmark } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBars,
+  faHeart,
+  faLightbulb,
+  faMagnifyingGlass,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
+// import { faHeart } from "@fortawesome/pro-regular-svg-icons";
 
-library.add(faBars, faMagnifyingGlass, faBars, faXmark, faHeart);
+library.add(faBars, faMagnifyingGlass, faBars, faXmark, faHeart, faLightbulb);
 
 createApp(App)
   .use(router)
