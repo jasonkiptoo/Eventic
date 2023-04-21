@@ -2,30 +2,83 @@
   <NavBar @search="handleSearch" />
 
   <div class="container">
-    <div class="filter-container">
-      <ul class="tabs">
-        <li :class="{ active: selectedTab === 'tab1' }">
-          <a @click="selectedTab = 'tab1'">All Events </a>
-        </li>
-        <li :class="{ active: selectedTab === 'tab2' }">
-          <a @click="selectedTab = 'tab2'">My Events</a>
-        </li>
-        <li :class="{ active: selectedTab === 'tab3' }">
-          <a @click="selectedTab = 'tab3'">Categories</a>
-        </li>
-      </ul>
-      <!-- tab content -->
-      <div class="tab-content">
-        <!-- tab 1 -->
-        <div v-show="selectedTab === 'tab1'">
-          <div class="title">
-            <h2 class="title">Popular events</h2>
-          </div>
+    <ul class="tabs">
+      <li :class="{ active: selectedTab === 'tab1' }">
+        <a @click="selectedTab = 'tab1'">All Events </a>
+      </li>
+      <li :class="{ active: selectedTab === 'tab2' }">
+        <a @click="selectedTab = 'tab2'">My Events</a>
+      </li>
+      <li :class="{ active: selectedTab === 'tab3' }">
+        <a @click="selectedTab = 'tab3'">Categories</a>
+      </li>
+    </ul>
 
+    <!-- tab content -->
+    <div class="tab-content">
+      <!-- tab 1 -->
+      <div v-show="selectedTab === 'tab1'">
+        <div class="title">
+          <h2 class="title">Popular events</h2>
+        </div>
+
+        <div class="events-container">
+          <div
+            class="event-card"
+            v-for="(event, index) in filtered"
+            :key="index"
+          >
+            <img :src="event.imageUrl" class="card-img" alt="..." />
+
+            <div class="card-body">
+              <div class="card-tit">
+                <h5 class="card-title">{{ event.eventName }}</h5>
+
+                <div class="class-heart">
+                  <div class="heart-outline">
+                    <font-awesome-icon
+                      v-if="isLiked"
+                      icon="fa-solid fa-heart"
+                      style="color: tomato"
+                      size="2xl"
+                      @click="likeEvent(event)"
+                      :class="{ liked: likedEvents.includes(event) }"
+                    />
+                    <font-awesome-icon
+                      v-else
+                      icon="fa-solid fa-heart"
+                      style="color: black"
+                      size="2xl"
+                      @click="likeEvent(event)"
+                      :class="{ liked: likedEvents.includes(event) }"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <p class="card-text">{{ event.description }}</p>
+              <p class="card-text-date">Date: {{ event.date }}</p>
+              <p class="card-text-date">Time: {{ event.time }}</p>
+              <p class="card-text">
+                Available slots: {{ event.availableSlots }}
+              </p>
+
+              <button class="btn-booknow">
+                Book now
+                <font-awesome-icon icon="fa-sharp fa-light fa-heart" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- second tab -->
+      <div v-show="selectedTab === 'tab2'">
+        <div class="liked-events">
+          <h2 class="title">Liked events</h2>
           <div class="events-container">
             <div
               class="event-card"
-              v-for="(event, index) in filtered"
+              v-for="(event, index) in likedEvents"
               :key="index"
             >
               <img :src="event.imageUrl" class="card-img" alt="..." />
@@ -36,22 +89,16 @@
 
                   <div class="class-heart">
                     <div class="heart-outline">
-                      <font-awesome-icon
-                        v-if="isLiked"
-                        icon="fa-solid fa-heart"
-                        style="color: tomato"
-                        size="2xl"
+                      <button
                         @click="likeEvent(event)"
                         :class="{ liked: likedEvents.includes(event) }"
-                      />
-                      <font-awesome-icon
-                        v-else
-                        icon="fa-solid fa-heart"
-                        style="color: black"
-                        size="2xl"
-                        @click="likeEvent(event)"
-                        :class="{ liked: likedEvents.includes(event) }"
-                      />
+                      >
+                        <font-awesome-icon
+                          icon="fa-solid fa-heart"
+                          style="color: tomato"
+                          size="2xl"
+                        />
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -71,121 +118,73 @@
             </div>
           </div>
         </div>
-        <!-- second tab -->
-        <div v-show="selectedTab === 'tab2'">
-          <div class="liked-events">
-            <h2 class="title">Liked events</h2>
-            <div class="events-container">
-              <div
-                class="event-card"
-                v-for="(event, index) in likedEvents"
-                :key="index"
-              >
-                <img :src="event.imageUrl" class="card-img" alt="..." />
+      </div>
 
-                <div class="card-body">
-                  <div class="card-tit">
-                    <h5 class="card-title">{{ event.eventName }}</h5>
-
-                    <div class="class-heart">
-                      <div class="heart-outline">
-                        <button
-                          @click="likeEvent(event)"
-                          :class="{ liked: likedEvents.includes(event) }"
-                        >
-                          <font-awesome-icon
-                            icon="fa-solid fa-heart"
-                            style="color: tomato"
-                            size="2xl"
-                          />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <p class="card-text">{{ event.description }}</p>
-                  <p class="card-text-date">Date: {{ event.date }}</p>
-                  <p class="card-text-date">Time: {{ event.time }}</p>
-                  <p class="card-text">
-                    Available slots: {{ event.availableSlots }}
-                  </p>
-
-                  <button class="btn-booknow">
-                    Book now
-                    <font-awesome-icon icon="fa-sharp fa-light fa-heart" />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- tab3 filter by categories -->
-        <div v-show="selectedTab === 'tab3'">
-          <h2 class="title">Filter by Categories</h2>
-          <ul class="category-list">
-            <li
-              @click="selectedCategory = 'All'"
-              :class="{ active: selectedCategory === 'All' }"
-            >
-              All
-            </li>
-            <li
-              @click="selectedCategory = 'Fashion'"
-              :class="{ active: selectedCategory === 'Fashion' }"
-            >
-              Fashion
-            </li>
-            <li
-              @click="selectedCategory = 'Technology'"
-              :class="{ active: selectedCategory === 'Technology' }"
-            >
-              Technology
-            </li>
-            <li
-              @click="selectedCategory = 'Food'"
-              :class="{ active: selectedCategory === 'Food' }"
-            >
-              Food & Drinks
-            </li>
-            <li
-              @click="selectedCategory = 'Social'"
-              :class="{ active: selectedCategory === 'Social' }"
-            >
-              Social
-            </li>
-            <li
-              @click="selectedCategory = 'Health'"
-              :class="{ active: selectedCategory === 'Health' }"
-            >
-              Health
-            </li>
-            <li
-              @click="selectedCategory = 'Sports'"
-              :class="{ active: selectedCategory === 'Sports' }"
-            >
-              Sports
-            </li>
-            <li
-              @click="selectedCategory = 'Business'"
-              :class="{ active: selectedCategory === 'Business' }"
-            >
-              Business
-            </li>
-            <li
-              @click="selectedCategory = 'Music'"
-              :class="{ active: selectedCategory === 'Music' }"
-            >
-              Music
-            </li>
-            <li
-              @click="selectedCategory = 'Climate'"
-              :class="{ active: selectedCategory === 'Climate' }"
-            >
-              Climate
-            </li>
-          </ul>
-        </div>
+      <!-- tab3 filter by categories -->
+      <div v-show="selectedTab === 'tab3'">
+        <h2 class="title">Filter by Categories</h2>
+        <ul class="category-list">
+          <li
+            @click="selectedCategory = 'All'"
+            :class="{ active: selectedCategory === 'All' }"
+          >
+            All
+          </li>
+          <li
+            @click="selectedCategory = 'Fashion'"
+            :class="{ active: selectedCategory === 'Fashion' }"
+          >
+            Fashion
+          </li>
+          <li
+            @click="selectedCategory = 'Technology'"
+            :class="{ active: selectedCategory === 'Technology' }"
+          >
+            Technology
+          </li>
+          <li
+            @click="selectedCategory = 'Food'"
+            :class="{ active: selectedCategory === 'Food' }"
+          >
+            Food & Drinks
+          </li>
+          <li
+            @click="selectedCategory = 'Social'"
+            :class="{ active: selectedCategory === 'Social' }"
+          >
+            Social
+          </li>
+          <li
+            @click="selectedCategory = 'Health'"
+            :class="{ active: selectedCategory === 'Health' }"
+          >
+            Health
+          </li>
+          <li
+            @click="selectedCategory = 'Sports'"
+            :class="{ active: selectedCategory === 'Sports' }"
+          >
+            Sports
+          </li>
+          <li
+            @click="selectedCategory = 'Business'"
+            :class="{ active: selectedCategory === 'Business' }"
+          >
+            Business
+          </li>
+          <li
+            @click="selectedCategory = 'Music'"
+            :class="{ active: selectedCategory === 'Music' }"
+          >
+            Music
+          </li>
+          <li
+            @click="selectedCategory = 'Climate'"
+            :class="{ active: selectedCategory === 'Climate' }"
+          >
+            Climate
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -342,11 +341,13 @@ export default {
 }
 
 .tabs {
+  position: fixed;
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   cursor: pointer;
+  z-index: 2000;
   /* justify-content: ; */
 }
 
@@ -361,7 +362,7 @@ export default {
   text-decoration: none;
   border: 1px solid #ccc;
   border-radius: 5px 5px 0 0;
-  background-color: #f9f9f9;
+  background-color: #ff8600;
 }
 
 .tabs a:hover {
@@ -369,8 +370,8 @@ export default {
 }
 
 .tabs li.active a {
-  background-color: #ff8600;
-  border-bottom-color: blue;
+  background-color: red;
+  border-bottom-color: 3px solid blue;
 }
 /* category list 
  */
