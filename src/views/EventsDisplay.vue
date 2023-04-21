@@ -3,8 +3,6 @@
 
   <div class="container">
     <div class="filter-container">
-      <!--  <h3 class="filter-text">Filter Events By :</h3> -->
-
       <ul class="tabs">
         <li :class="{ active: selectedTab === 'tab1' }">
           <a @click="selectedTab = 'tab1'">All Events </a>
@@ -13,7 +11,7 @@
           <a @click="selectedTab = 'tab2'">My Events</a>
         </li>
         <li :class="{ active: selectedTab === 'tab3' }">
-          <a @click="selectedTab = 'tab3'">Tab 3</a>
+          <a @click="selectedTab = 'tab3'">Categories</a>
         </li>
       </ul>
       <div class="tab-content">
@@ -36,10 +34,7 @@
 
                   <div class="class-heart">
                     <div class="heart-outline">
-                      <!-- <button
-                  @click="likeEvent(event)"
-                  :class="{ liked: likedEvents.includes(event) }"
-                > -->
+                      
                       <font-awesome-icon
                         v-if="isLiked"
                         icon="fa-solid fa-heart"
@@ -122,7 +117,9 @@
             </div>
           </div>
         </div>
-        <div v-show="selectedTab === 'tab3'">Tab 3 content</div>
+        <div v-show="selectedTab === 'tab3'">
+          <h2 class="title">Filter by Categories</h2>
+        </div>
       </div>
     </div>
   </div>
@@ -282,6 +279,7 @@ export default {
   margin: 0;
   padding: 0;
   display: flex;
+  cursor: pointer;
   /* justify-content: ; */
 }
 
@@ -304,8 +302,8 @@ export default {
 }
 
 .tabs li.active a {
-  background-color: #fff;
-  border-bottom-color: #fff;
+  background-color: blue;
+  border-bottom-color: blue;
 }
 
 /* Default styles for the cards */
