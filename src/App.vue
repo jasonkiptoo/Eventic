@@ -4,6 +4,7 @@
  <!-- <NavBar /> -->
  <UpcomingEvents/>
  <Event/>
+
  <!-- <LoginPag/> -->
 
  <!-- <router-view></router-view> -->

@@ -1,7 +1,10 @@
 <template>
   <footer>
     <div class="footer-content">
-      <p>© 2023 EvenTic ✔<br> All rights reserved.</p>
+      <p>
+        © 2023 EvenTic ✔<br />
+        All rights reserved.
+      </p>
       <ul class="footer-links">
         <li><a href="#">Terms of Service</a></li>
         <li><a href="#">Privacy Policy</a></li>
@@ -12,20 +15,18 @@
 </template>
 <script>
 export default {
-  name: 'NavFooter'
-}
+  name: "NavFooter",
+};
 </script>
 <style scoped>
 footer {
   background-color: #f8f7fa;
-      padding: 20px;
+  padding: 20px;
   margin-top: 30px;
   text-align: center;
-  /* position: absolute; */
   bottom: 0;
   left: 0;
   right: 0;
-  /* width: 100%; */
 }
 
 .footer-content {

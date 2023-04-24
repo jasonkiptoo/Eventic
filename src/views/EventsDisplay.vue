@@ -1,6 +1,8 @@
 <template>
   <NavBar @search="handleSearch" />
 
+
+
   <div class="container">
     <ul class="tabs">
       <li :class="{ active: selectedTab === 'tab1' }">
@@ -212,11 +214,13 @@
 import NavBar from "../views/NavBar.vue";
 
 import axios from "axios";
+// import CreateEventForm from "../views/CreateEventForm.vue";
 
 export default {
   components: {
     NavBar,
-  },
+    // CreateEventForm
+},
   data() {
     return {
       selectedCategory: "All",
