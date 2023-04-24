@@ -1,12 +1,12 @@
 <template>
   <div class="container-login">
-     <div v-if="showLoginModal" class="modal">
+    <div v-if="showLoginModal" class="modal">
       <div class="modal-content">
         <span class="close" @click="showLoginModal = false">&times;</span>
         <LoginPage />
       </div>
-    </div>
-    <div class="moda">
+     </div>
+     <div class="moda">
       <h3 class="logo-text">EvenTic✔</h3>
       <h2 class="title">Login</h2>
 

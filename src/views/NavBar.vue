@@ -31,6 +31,9 @@
         <li><button class="signin">Sign Up</button></li>
       </ul>
     </div>
+    <div class="modall" v-show="showLoginModal">
+      <LoginPage />
+    </div>
     <div
       v-if="showLoginModal"
       class="modal-overlay"
@@ -40,7 +43,6 @@
         <span class="close" @click="showLoginModal = false"
           ><font-awesome-icon icon="fa-solid fa-xmark" size="2xl"
         /></span>
-        <LoginPage />
       </div>
     </div>
   </div>
@@ -48,13 +50,16 @@
 </template>
 
 <script>
-// import LoginPage from "../views/LoginPage.vue";
+import LoginPage from "../views/LoginPage.vue";
 export default {
   data() {
     return {
       searchQuery: "",
       showLoginModal: false,
     };
+  },
+  components: {
+    LoginPage,
   },
 };
 </script>
@@ -68,11 +73,10 @@ export default {
   top: 0;
   width: 100%;
   height: 60px;
-z-index: 100;
+  z-index: 100;
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  
 }
 .modal-overlay {
   position: fixed;

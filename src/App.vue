@@ -25,7 +25,7 @@ export default {
   components: {
   
     Event,
-    // LoginPag
+    // LoginPag,
     // EventsDisplay,
     UpcomingEvents,
     // NavFooter,
