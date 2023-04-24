@@ -6,7 +6,8 @@
       "date": "2023-07-08",
       "time": "12:00 PM",
       "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
-      "availableSlots": 500
+      "availableSlots": 500,
+      "isLiked": true
     },
     {
       "eventName": "Charity Gala",
@@ -14,7 +15,8 @@
       "date": "2023-09-15",
       "time": "7:00 PM",
       "imageUrl": "https://images.unsplash.com/photo-1556125574-d7f27ec36a06?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      "availableSlots": 100
+      "availableSlots": 100,
+      "isLiked": false
     },
     {
       "eventName": "Art Exhibition",
@@ -22,7 +24,8 @@
       "date": "2023-05-20",
       "time": "10:00 AM",
       "imageUrl": "https://plus.unsplash.com/premium_photo-1663012861364-db0fbb286145?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=777&q=80",
-      "availableSlots": 200
+      "availableSlots": 200,
+      "isLiked": false
     },
     {
       "eventName": "Food Festival",
@@ -30,7 +33,36 @@
       "date": "2023-06-03",
       "time": "11:00 AM",
       "imageUrl": "https://images.unsplash.com/photo-1530023367847-a683933f4172?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
-      "availableSlots": 300
+      "availableSlots": 300,
+      "isLiked": true
+    },
+    {
+      "eventName": "Sports Tournament",
+      "description": "Watch some of the world's top athletes compete in a variety of sports.",
+      "date": "2023-08-12",
+      "time": "9:00 AM",
+      "imageUrl": "https://images.unsplash.com/photo-1530023367847-a683933f4172?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
+      "availableSlots": 300,
+      "isLiked": true
+    },
+
+    {
+      "eventName": "Art Exhibition",
+      "description": "Explore the works of some of the most talented artists in the world.",
+      "date": "2023-05-20",
+      "time": "10:00 AM",
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1663012861364-db0fbb286145?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=777&q=80",
+      "availableSlots": 200,
+      "isLiked": true
+    },
+    {
+      "eventName": "Food Festival",
+      "description": "Sample the culinary delights of dozens of top chefs and restaurants.",
+      "date": "2023-06-03",
+      "time": "11:00 AM",
+      "imageUrl": "https://images.unsplash.com/photo-1530023367847-a683933f4172?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
+      "availableSlots": 300,
+      "isLiked": false
     },
     {
       "eventName": "Sports Tournament",
@@ -38,7 +70,8 @@
       "date": "2023-08-12",
       "time": "9:00 AM",
       "imageUrl": "https://images.unsplash.com/photo-1561912774-79769a0a0a7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
-      "availableSlots": 1000
+      "availableSlots": 1000,
+      "isLiked": true
     },
     {
       "eventName": "Wine Tasting",
@@ -46,7 +79,8 @@
       "date": "2023-07-20",
       "time": "3:00 PM",
       "imageUrl": "https://images.unsplash.com/photo-1598306442837-613a3def54ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8d2luZSUyMHRhc3Rpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-      "availableSlots": 250
+      "availableSlots": 250,
+      "isLiked": true
     },
     {
       "eventName": "Comedy Night",
@@ -54,7 +88,8 @@
       "date": "2023-08-10",
       "time": "8:00 PM",
       "imageUrl": "https://images.unsplash.com/photo-1470020618177-f49a96241ae7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29tZWR5JTIwbmlnaHR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-      "availableSlots": 150
+      "availableSlots": 150,
+      "isLiked": false
     },
     {
       "eventName": "Film Festival",
@@ -62,7 +97,8 @@
       "date": "2023-09-01",
       "time": "12:00 PM",
       "imageUrl": "https://plus.unsplash.com/premium_photo-1661346072176-2a1657654e24?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZmlsbSUyMGZlc3RpdmFsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-      "availableSlots": 400
+      "availableSlots": 400,
+      "isLiked": false
     },
     {
       "eventName": "Fitness Expo",
@@ -70,7 +106,8 @@
       "date": "2023-06-15",
       "time": "9:00 AM",
       "imageUrl": "https://images.unsplash.com/photo-1603503363848-6952525df449?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Zml0bmVzc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-      "availableSlots": 300
+      "availableSlots": 300,
+      "isLiked": true
     },
     {
       "eventName": "Book Fair",
@@ -78,7 +115,8 @@
       "date": "2023-10-20",
       "time": "10:00 AM",
       "imageUrl": "https://images.unsplash.com/photo-1631888717179-7e213fc93e1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Ym9vayUyMGZhaXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-      "availableSlots": 200
+      "availableSlots": 200,
+      "isLiked": true
     },
     {
       "eventName": "Science Exhibition",
@@ -86,7 +124,8 @@
       "date": "2023-11-15",
       "time": "1:00 PM",
       "imageUrl": "https://plus.unsplash.com/premium_photo-1661281403791-f01400b4ec52?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHNjaWVuY2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-      "availableSlots": 500
+      "availableSlots": 500,
+      "isLiked": false
     }
   ]}
    

@@ -11,11 +11,13 @@ import {
   faHeart,
   faLightbulb,
   faMagnifyingGlass,
+  
+  faStar,
+  
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
-// import { faHeart } from "@fortawesome/pro-regular-svg-icons";
 
-library.add(faBars, faMagnifyingGlass, faBars, faXmark, faHeart, faLightbulb);
+library.add(faBars, faMagnifyingGlass, faBars, faXmark, faHeart, faLightbulb, faStar);
 
 createApp(App)
   .use(router)
