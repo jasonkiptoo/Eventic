@@ -39,6 +39,7 @@
                     size="2xl"
                     style="color: #f06543"
                     v-on:click="event.isLiked = false"
+                    @click="likedEvents(event)"
                   />
                 </span>
                 <span v-show="!event.isLiked" class="">
