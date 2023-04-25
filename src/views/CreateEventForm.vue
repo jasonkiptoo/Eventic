@@ -37,16 +37,27 @@
         />
       </div>
     </div>
-    <button>Create Event</button>
+    <button @click="bookEvent">Create Event</button>
+    <CreateEventForm/>
   </div>
 </template>
 
 <script>
+import CreateEventForm from "../views/CreateEventForm.vue"
 export default {
+  data() {
+    return {
+      bookEvent: false,
+    };
+  },
+
   name: "LogIn",
   props: {
     msg: String,
   },
+  components: {
+    CreateEventForm
+  }
 };
 </script>
 

@@ -23,11 +23,7 @@
         </div>
 
         <div class="events-container">
-          <div
-            class="event-card"
-            v-for="(event, index) in filtered"
-            :key="index"
-          >
+          <div class="event-card" v-for="(event, index) in events" :key="index">
             <img :src="event.imageUrl" class="card-img" alt="..." />
 
             <div class="card-body">
@@ -212,17 +208,70 @@
 import NavBar from "../views/NavBar.vue";
 
 import axios from "axios";
+// import CreateEventForm from "../views/CreateEventForm.vue";
 
 export default {
   components: {
     NavBar,
-  },
+    // CreateEventForm
+},
   data() {
     return {
       selectedCategory: "All",
       selectedTab: "tab1",
       searchQuery: "",
-      events: [],
+      events: [
+
+
+
+    {
+      "eventName": "Music Festival",
+      "description": "Join us for a weekend of live music from some of the best bands around!",
+      "date": "2023-07-08",
+      "time": "12:00 PM",
+      "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+      "availableSlots": 500,
+      "isLiked": true
+    },
+    {
+      "eventName": "Charity Gala",
+      "description": "Support a good cause and enjoy an elegant evening of dinner, drinks, and entertainment.",
+      "date": "2023-09-15",
+      "time": "7:00 PM",
+      "imageUrl": "https://images.unsplash.com/photo-1556125574-d7f27ec36a06?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "availableSlots": 100,
+      "isLiked": false
+    },
+    {
+      "eventName": "Art Exhibition",
+      "description": "Explore the works of some of the most talented artists in the world.",
+      "date": "2023-05-20",
+      "time": "10:00 AM",
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1663012861364-db0fbb286145?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=777&q=80",
+      "availableSlots": 200,
+      "isLiked": false
+    },
+    {
+      "eventName": "Art Exhibition",
+      "description": "Explore the works of some of the most talented artists in the world.",
+      "date": "2023-05-20",
+      "time": "10:00 AM",
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1663012861364-db0fbb286145?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=777&q=80",
+      "availableSlots": 200,
+      "isLiked": false
+    },
+    {
+      "eventName": "Art Exhibition",
+      "description": "Explore the works of some of the most talented artists in the world.",
+      "date": "2023-05-20",
+      "time": "10:00 AM",
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1663012861364-db0fbb286145?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=777&q=80",
+      "availableSlots": 200,
+      "isLiked": false
+    },
+  ],
+
+
       isLiked: [],
       likedEvents: [],
     };
